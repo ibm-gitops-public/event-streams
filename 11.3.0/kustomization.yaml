@@ -2,28 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - data-event-streams-kafka.yaml
-  - data-event-streams-zookeeper.yaml
   - instance.yaml
   - subscription.yaml
-
-patches:
-  - target:
-      kind: PersistentVolumeClaim
-      name: data-event-streams-kafka-0
-    patch: |-
-      - op: replace
-        path: /spec/storageClassName
-        value: 'ocs-storagecluster-ceph-rbd'
-
-replacements:
-  - source:
-      name: data-event-streams-kafka-0
-      kind: PersistentVolumeClaim
-      fieldPath: spec.storageClassName
-    targets:
-      - select:
-          kind: PersistentVolumeClaim
-          name: data-event-streams-zookeeper-0
-        fieldPaths:
-          - spec.storageClassName

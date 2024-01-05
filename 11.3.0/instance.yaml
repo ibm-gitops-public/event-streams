@@ -28,8 +28,8 @@ spec:
         type: jmxPrometheusExporter
       storage:
         type: persistent-claim
-        selector:
-          app.kubernetes.io/name: kafka
+        class: ocs-storagecluster-ceph-rbd
+        size: 100Gi
       listeners:
         - name: extscram
           type: route
@@ -53,8 +53,8 @@ spec:
         type: jmxPrometheusExporter
       storage:
         type: persistent-claim
-        selector:
-          app.kubernetes.io/name: zookeeper
+        class: ocs-storagecluster-ceph-rbd
+        size: 100Gi
       replicas: 1
   adminUI:
     authentication:
