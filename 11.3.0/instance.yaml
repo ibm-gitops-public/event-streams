@@ -27,6 +27,7 @@ spec:
             name: light-insecure-metrics-config
         type: jmxPrometheusExporter
       storage:
+        type: persistent-claim
         selector:
           app.kubernetes.io/name: kafka
       listeners:
@@ -51,6 +52,7 @@ spec:
             name: light-insecure-metrics-config
         type: jmxPrometheusExporter
       storage:
+        type: persistent-claim
         selector:
           app.kubernetes.io/name: zookeeper
       replicas: 1
