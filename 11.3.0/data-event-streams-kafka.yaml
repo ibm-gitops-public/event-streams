@@ -4,7 +4,6 @@ metadata:
   name: data-event-streams-kafka-0
   annotations:
     eventstreams.ibm.com/delete-claim: 'false'
-    argocd.argoproj.io/sync-wave: "0"
   finalizers:
     - kubernetes.io/pvc-protection
   labels:
