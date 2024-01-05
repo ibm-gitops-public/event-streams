@@ -6,6 +6,7 @@ metadata:
     backup.eventstreams.ibm.com/component: eventstreams
   annotations:
     eventstreams.ibm.com/apicurio-registry-version: '>=2.4'
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   license:
     accept: true
