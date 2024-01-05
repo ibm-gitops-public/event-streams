@@ -25,6 +25,8 @@ replacements:
       - select:
           kind: PersistentVolumeClaim
           name: data-event-streams-kafka-0
+        fieldPaths:
+          - spec.storageClassName
       - select:
           kind: PersistentVolumeClaim
           name: data-event-streams-zookeeper-0
