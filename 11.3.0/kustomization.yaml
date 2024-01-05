@@ -9,31 +9,21 @@ resources:
 
 patches:
   - target:
-      kind: EventStreams
-      name: event-streams
+      kind: PersistentVolumeClaim
+      name: data-event-streams-kafka-0
     patch: |-
       - op: replace
-        path: /spec/strimziOverrides/kafka/storage/class
+        path: /spec/storageClassName
         value: 'ocs-storagecluster-ceph-rbd'
 
 replacements:
   - source:
-      name: event-streams
-      kind: EventStreams
-      fieldPath: spec.strimziOverrides.kafka.storage.class
+      name: data-event-streams-kafka-0
+      kind: PersistentVolumeClaim
+      fieldPath: spec.storageClassName
     targets:
-      - select:
-          kind: PersistentVolumeClaim
-          name: data-event-streams-kafka-0
-        fieldPaths:
-          - spec.storageClassName
       - select:
           kind: PersistentVolumeClaim
           name: data-event-streams-zookeeper-0
         fieldPaths:
           - spec.storageClassName
-      - select:
-          kind: EventStreams
-          name: event-streams
-        fieldPaths:
-          - spec.strimziOverrides.zookeeper.storage.class

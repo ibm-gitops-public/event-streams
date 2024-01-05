@@ -27,9 +27,8 @@ spec:
             name: light-insecure-metrics-config
         type: jmxPrometheusExporter
       storage:
-        type: persistent-claim
-        class: ocs-storagecluster-ceph-rbd
-        size: 100Gi
+        selector:
+          app.kubernetes.io/name: kafka
       listeners:
         - name: extscram
           type: route
@@ -52,9 +51,8 @@ spec:
             name: light-insecure-metrics-config
         type: jmxPrometheusExporter
       storage:
-        type: persistent-claim
-        class: ocs-storagecluster-ceph-rbd
-        size: 100Gi
+        selector:
+          app.kubernetes.io/name: zookeeper
       replicas: 1
   adminUI:
     authentication:
