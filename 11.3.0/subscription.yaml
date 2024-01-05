@@ -6,7 +6,7 @@ metadata:
   labels:
     backup.eventstreams.ibm.com/component: subscription
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   channel: v3.3
   name: ibm-eventstreams
