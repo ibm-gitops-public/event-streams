@@ -1,0 +1,9 @@
+apiVersion: builtin
+kind: PrefixSuffixTransformer
+metadata:
+  name: customPrefixer
+prefix: "dev-"
+fieldSpecs:
+  - path: metadata/name
+    apiVersion: eventstreams.ibm.com/v1beta2
+    kind: EventStreams
