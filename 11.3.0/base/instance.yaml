@@ -2,7 +2,6 @@ apiVersion: eventstreams.ibm.com/v1beta2
 kind: EventStreams
 metadata:
   name: event-streams
-  namespace: {{ .Values.namespace }}
   labels:
     backup.eventstreams.ibm.com/component: eventstreams
   annotations:
@@ -29,7 +28,6 @@ spec:
         type: jmxPrometheusExporter
       storage:
         type: persistent-claim
-        class: {{ .Values.storage.blockStorage }}
         size: 100Gi
       listeners:
         - name: extscram
@@ -54,7 +52,6 @@ spec:
         type: jmxPrometheusExporter
       storage:
         type: persistent-claim
-        class: {{ .Values.storage.blockStorage }}
         size: 100Gi
       replicas: 1
   adminUI:
